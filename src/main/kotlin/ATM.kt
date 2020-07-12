@@ -48,7 +48,10 @@ fun chooseJob(){
         1 -> depositMenu()
         2 -> withdrawalMenu()
         3 -> balanceMenu()
-        else -> print("感谢使用，您的账号已退出！")
+        4 -> print("感谢使用，您的账号已退出！")
+        else -> {println("命令有误！请重新输入命令：")
+            chooseJob()
+        }
     }
 }
 
@@ -70,15 +73,13 @@ fun withdrawalMenu(){
         if (FirstMoney - withdrawalMoney < 0){
             //余额不足
             println("账户余额不足，请重新操作！")
-            menu()
-            chooseJob()
         }else{
             //取款成功
             println("取款成功！返回菜单界面")
             FirstMoney -= withdrawalMoney
-            menu()
-            chooseJob()
         }
+    menu()
+    chooseJob()
 }
 
 fun balanceMenu(){
