@@ -67,24 +67,18 @@ fun withdrawalMenu(){
     print("请输入取款金额：")
     var withdrawalMoney = scanner.nextInt()
     //判断账户余额是否充足
-    for (i in 3 downTo 1 step 1){
         if (FirstMoney - withdrawalMoney < 0){
             //余额不足
-            print("账户余额不足，还剩($i)次操作机会，请重新输入取款金额：")
-            withdrawalMoney = scanner.nextInt()
-            FirstMoney -= withdrawalMoney
-            println("取款成功！返回菜单界面")
+            println("账户余额不足，请重新操作！")
             menu()
             chooseJob()
-            break
         }else{
             //取款成功
             println("取款成功！返回菜单界面")
+            FirstMoney -= withdrawalMoney
             menu()
             chooseJob()
-            break
         }
-    }
 }
 
 fun balanceMenu(){
